@@ -1,18 +1,14 @@
 extends Area2D
 signal hit
 
-# Declare member variables here. Examples:
 export var speed = 400
 var screen_size
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
@@ -38,7 +34,6 @@ func _process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
-	
 
 
 func _on_Player_body_entered(body):
